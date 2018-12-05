@@ -1,17 +1,20 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import { useRedux } from "../hooks/redux";
 
-function Hook(props){
-  // const [count, setCount] = useState(100);
-  const [time, setTime] = useState(1);
-  
-  useEffect(() => {
-    const interval = setInterval(() => setTime(time + 1), 1000);
-    return () => clearInterval(interval);
-  });
+function Hook(props) {
+  const [
+    count, 
+    setState
+  ] = useRedux("count", "INCREASE_COUNT");
 
   return (
     <div>
-      <p>{time}</p>
+      <p>{count}</p>
+      <button
+        onClick={() => setState(count + 1)}
+      >
+        Increase
+      </button>
     </div>
   );
 }
