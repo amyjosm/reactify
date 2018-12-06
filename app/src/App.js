@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
-import Navbar from "./components/common/Navbar";
 import TodoForm from "./components/TodoForm";
-import Hook from "./components/Hook";
+import TodoList from "./components/TodoList";
 
 import rootReducer from "./reducers";
 
@@ -19,11 +18,15 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <Navbar />
           <Router>
+            <div>
+              <Link to="/">Home</Link>
+              <Link to="addtodo">Add Todo</Link>
             <Switch>
-              <Route path="/" exact component={Hook} />
+              <Route path="/" exact component={TodoList} />
+              <Route path="/addtodo" exact component={TodoForm} />
             </Switch>
+            </div>
           </Router>
         </div>
       </Provider>

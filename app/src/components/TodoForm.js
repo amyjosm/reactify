@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+import {addTodo} from "../actions";
 
-function TodoForm(props){
-  console.log(props);
+
+function TodoForm(props) {
+  const [todo, setTodo] = useState("");
 
   return (
     <div>
-      <p>{props.count}</p>
-      <button onClick={props.burrito}> Increment </button>
+      <p>Adding a todo for {props.name}</p>
+      <input
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        type="text" />
+      <button onClick={() => { props.createTodo(todo) }}>Add Todo</button>
       <hr/>
     </div>
   );
 }
 
-const mapStateToProps = ({count}) => ({count});
-const mapDispatchToProps = (dispatch) => ({
-    burrito(){ 
-      dispatch({type: "INCREASE_COUNT"})
+function mapStateToProps(state){
+  return {
+    name: state.name
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    createTodo(todo){
+      dispatch(addTodo(todo))
     }
-});
+  }
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
