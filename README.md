@@ -8,11 +8,11 @@ Reactify is a simple MERN Stack application that allows an authenticated user to
 Since this is a MERN application we will be using React on the front end. As well as other useful libraries that compliment React
 
 ### Frontend Libraries
-- Create React App - CLI tools that will structure our react application for us
-- React - A JavaScript library for building user interfaces
-- React Router - a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
-- Redux - A predictable state container for JavaScript apps.
-- React-Redux - A react library that allows us to tie into our Redux store easily
+- [Create React App](https://github.com/facebook/create-react-app) - CLI tools that will structure our react application for us
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [React Router](https://github.com/ReactTraining/react-router) - a powerful routing library built on top of React that helps you add new screens and flows to your application incredibly quickly, all while keeping the URL in sync with what's being displayed on the page.
+- [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
+- [React-Redux](https://redux.js.org/basics/usage-with-react) - A react library that allows us to tie into our Redux store easily
 
 ### Frontend Structure
 ```
