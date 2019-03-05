@@ -20,6 +20,7 @@ app.use(require("morgan")("dev"));
 // Serve Static
 app.use(express.static("app/build"));
 
+
 app.use(require("./routes"));
 
 app.listen(PORT, function(){
