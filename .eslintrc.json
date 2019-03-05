@@ -23,7 +23,6 @@
       "no-duplicate-case": "error",
       "no-unused-vars": "error",
       "yoda": "error",
-      "new-cap": "warn",
       "no-console": "warn"
     }
 }
