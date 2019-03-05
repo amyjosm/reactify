@@ -13,6 +13,8 @@
         "sourceType": "module"
     },
     "rules": {
+      "indent": ["error", 2],
+      "no-tabs": "error",
       "no-empty": "error",
       "no-extra-semi": "error",
       "no-extra-parens": "error",
