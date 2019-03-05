@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Passport configuration
-const passport = require("passport");
+// const passport = require("passport");
 require("./services/passport");
 
 // Mongoose Connection
