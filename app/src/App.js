@@ -12,6 +12,7 @@ import Home from "./components/pages/Home";
 import Post from "./components/pages/Post";
 import AuthRoute from "./utils/AuthRoute";
 import ReactExamples from "./components/pages/ReactExamples";
+import Footer from "./components/common/Footer";
 
 
 function App(props) {
@@ -25,6 +26,7 @@ function App(props) {
               <Route exact path="/documentation" component={AuthRoute(Post)} />
               <Route path="/react-examples" component={ReactExamples} />
             </Switch>
+            <Footer/>
             <ModalController />
           </div>
         </Router>
