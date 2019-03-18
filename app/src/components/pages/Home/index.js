@@ -5,7 +5,6 @@ function Home(props) {
   return (
     <div>
       Welcome to the Home Page!
-      <button className="button is-primary" onClick={() => props.dispatch(increaseCount())}>Press Me</button>
     </div>
   )
 }
