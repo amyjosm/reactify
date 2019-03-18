@@ -2,6 +2,7 @@ require("dotenv").config();
 // Express initialization
 const express = require("express");
 const app = express();
+const path = require("path");
 const PORT = process.env.PORT || 8080;
 
 // Passport configuration
@@ -22,6 +23,10 @@ app.use(express.static("app/build"));
 
 app.use(require("./routes"));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname + "/app/build/index.html"));
+});
+
 app.listen(PORT, function() {
-  console.log(`App listening on PORT ${PORT}`); // es
+  console.log(`App listening on PORT ${PORT}`);
 });
