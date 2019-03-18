@@ -10,16 +10,17 @@ function Props() {
         <p>
           Props are a core part of React, they are the primary way in which we
           can pass around data in a React application. You use them in a very
-          similar to html attributes
+          similar way to html attributes.
         </p>
         <Prism>
           {`
 <Title text="Hello!" />
 
 function Title(props){
-return <h1>{props.text}</h1>;
+  return <h1>{props.text}</h1>;
 }
-  `}
+
+`}
         </Prism>
       </Content>
       <Content>
@@ -36,6 +37,7 @@ React.createElement(Title, {
 function Title(props) {
   return React.createElement("h1", null, props.text);
 }
+
 `}
         </Prism>
       </Content>
