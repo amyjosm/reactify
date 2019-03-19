@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { changeModal } from "../../state/modal/actions";
 import { Link } from "react-router-dom";
 import {
   Navbar as Nav,
@@ -78,21 +76,4 @@ function Navbar(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  authenticated: state.auth.authenticated,
-  user: state.auth.user
-});
-
-const mapDispatchToProps = dispatch => ({
-  loginModal() {
-    dispatch(changeModal("LoginModal"));
-  },
-  signUpModal() {
-    dispatch(changeModal("SignUpModal"));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Navbar);
+export default Navbar;

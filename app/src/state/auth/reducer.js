@@ -9,9 +9,7 @@ const defaultState = {
   authenticated: false,
   token: "",
   error: "",
-  user: {
-    name: "Tucker"
-  }
+  user: {}
 }
 
 const authReducer = handleActions({
