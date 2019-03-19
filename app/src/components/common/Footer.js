@@ -6,8 +6,7 @@ import {
   Container,
   Content,
   Columns,
-  Column,
-  Icon
+  Column
 } from "bloomer";
 
 function Footer(props) {
@@ -16,7 +15,7 @@ function Footer(props) {
       <Container>
         <Content>
           <Columns>
-            <Column isFull>
+            <Column>
               <p>
                 Made with <FontAwesomeIcon icon={faCoffee} /> by Tucker Beauchamp
               </p>

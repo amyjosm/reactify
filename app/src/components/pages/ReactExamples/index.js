@@ -16,7 +16,7 @@ function ReactExamples(props) {
 
   return (
     <>
-      <Hero style={{marginBottom: 20}} isColor="info" isSize="medium">
+      <Hero isFullWidth style={{marginBottom: 20}} isColor="info" isSize="medium">
         <HeroBody>
           <Container hasTextAlign="centered">
             <Title>React Examples</Title>

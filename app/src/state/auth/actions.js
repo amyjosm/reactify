@@ -14,3 +14,13 @@ export function signin(email, password) {
     }).catch(err => console.log(err));
   }
 }
+
+export function signup(email, password) {
+  return function(dispatch) {
+    return API.signUp(email, password).then(res => {
+      const auth = {...res.data};
+      auth.authenticated = true;
+      dispatch(updateAuth(auth))
+    }).catch(err => console.log(err));
+  }
+}

@@ -10,7 +10,9 @@ import {
   NavbarMenu,
   NavbarStart,
   NavbarEnd,
-  Button
+  NavbarDropdown,
+  Button,
+  NavbarLink
 } from "bloomer";
 
 function Navbar(props) {
@@ -27,26 +29,48 @@ function Navbar(props) {
 
       <NavbarMenu isActive={menuOpen}>
         <NavbarStart>
-          <Link onClick={() => setMenuOpen(false)} to="/" className="navbar-item">
+          <Link
+            onClick={() => setMenuOpen(false)}
+            to="/"
+            className="navbar-item"
+          >
             Home
           </Link>
-          <Link onClick={() => setMenuOpen(false)} to="/documentation" className="navbar-item">
+          <Link
+            onClick={() => setMenuOpen(false)}
+            to="/documentation"
+            className="navbar-item"
+          >
             Documentation
           </Link>
-          <Link onClick={() => setMenuOpen(false)} to="/react-examples" className="navbar-item">
-            React Examples
-          </Link>
+          <NavbarItem hasDropdown isHoverable style={{ padding: 0 }}>
+            <NavbarLink>Examples</NavbarLink>
+            <NavbarDropdown>
+              <Link
+                style={{ height: "100%" }}
+                onClick={() => setMenuOpen(false)}
+                to="/react-examples"
+                className="navbar-item"
+              >
+                React Examples
+              </Link>
+            </NavbarDropdown>
+          </NavbarItem>
         </NavbarStart>
         <NavbarEnd>
           <NavbarItem>
-            <div className="buttons">
-              <Button onClick={props.signUpModal} isColor="primary">
-                <strong>Sign up</strong>
-              </Button>
-              <Button onClick={props.loginModal} isColor="light">
-                Log in
-              </Button>
-            </div>
+            {props.authenticated ? (
+              <div>Welcome {props.user.email}!</div>
+            ) : (
+              <div className="buttons">
+                <Button onClick={props.signUpModal} isColor="primary">
+                  <strong>Sign up</strong>
+                </Button>
+                <Button onClick={props.loginModal} isColor="light">
+                  Log in
+                </Button>
+              </div>
+            )}
           </NavbarItem>
         </NavbarEnd>
       </NavbarMenu>
@@ -54,18 +78,21 @@ function Navbar(props) {
   );
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    loginModal() {
-      dispatch(changeModal("LoginModal"));
-    },
-    signUpModal() {
-      dispatch(changeModal("SignUpModal"));
-    }
-  };
-}
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated,
+  user: state.auth.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  loginModal() {
+    dispatch(changeModal("LoginModal"));
+  },
+  signUpModal() {
+    dispatch(changeModal("SignUpModal"));
+  }
+});
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Navbar);

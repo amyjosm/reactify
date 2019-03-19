@@ -17,19 +17,19 @@ function tokenizer(user) {
   );
 }
 
-router.get("/", function (req, res) {
+router.get("/", function(req, res) {
   res.send("Welcome to the v1 routes!");
 });
 
-router.get("/protected", requireAuth, function(req, res){
+router.get("/protected", requireAuth, function(req, res) {
   res.send("You have been protected!");
 });
 
-router.post("/signin", requireSignin, function (req, res) {
+router.post("/signin", requireSignin, function(req, res) {
   res.json({ token: tokenizer(req.user) });
 });
 
-router.post("/signup", function (req, res) {
+router.post("/signup", function(req, res) {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -48,7 +48,7 @@ router.post("/signup", function (req, res) {
       user.save().then(user => {
         console.log(user);
         // respond with the success if the user existed
-        res.json({ token: tokenizer(user) });
+        res.json({ token: tokenizer(user), user: { email: user.email } });
       });
     })
     .catch(err => {
